@@ -22,7 +22,7 @@ function agregarSimboloExclamacion(str) {
    // Agrega un símbolo de exclamación al final del string "str" y retórnalo
    // Ejemplo: "hello world" ---> "hello world!"
    // Tu código:
-   return str + "!!!!!";
+   return str + "!";
 }
  console.log (agregarSimboloExclamacion("Quiero ser programador"));
 
@@ -39,14 +39,14 @@ function obtenerSaludo(nombre) {
    // Toma el string "nombre" y concatena otra string en la cadena para que tome la siguiente forma:
    // Ejemplo: "Martin" ---> "Hola Martin!"
    // Tu código:
-    return "Hola" + " " + nombre + "!!!!";
+    return "Hola" + " " + nombre + "!";
 }
  console.log (obtenerSaludo("Alba")); 
 
 function obtenerAreaRectangulo(alto, ancho) {
    // Retornar el área de un rectángulo teniendo su altura y ancho.
    // Tu código:
-    return "El area del rectangulo es" + " " + alto * ancho;
+    return  alto * ancho;
 }
  console.log (obtenerAreaRectangulo(4, 3));
 
@@ -54,30 +54,49 @@ function retornarPerimetro(lado) {
    // La función recibe como argumento la medida de un lado de un cuadrado.
    // Debes retornar su perímetro.
    // Tu código:
-    return "El perimetro es:" + " " + lado * 4;
+    return lado * 4;
 } 
   console.log (retornarPerimetro(4));
 
 function areaDelTriangulo(base, altura) {
    // Calcula el área de un triángulo y retorna el resultado.
    // Tu código:
+   return  (base * altura) / 2;
 }
+  console.log (areaDelTriangulo(10, 5));
 
 function deEuroAdolar(euro) {
    // Supongamos que 1 euro equivale a 1.20 dólares.
    // Debes calcular el valor recibido como argumento pasándolo a dolares.
    // Tu código:
    const tasaDeConversion = 1.20;
-   return "Tus dolares son:" + " " + euro * tasaDeConversion ;
+   return  euro * tasaDeConversion ;
 }
-  console.log (deEuroAdolar(2));
-  
+  console.log (deEuroAdolar(200));
+
 function esVocal(letra) {
    // Escribe una función que reciba una letra y, si es una vocal, muestre el mensaje “Es vocal”.
    // Si el usuario ingresa un string de más de un caracter debes retornar el mensaje: "Dato incorrecto".
    // Si no es vocal, tambien debe retornar "Dato incorrecto".
    // Tu código:
+   if (letra.length !== 1) {
+      return "Dato incorrecto";
+   }
+   
+   const vocal = letra.toLowerCase(); // Convertir a minúsculas para manejar mayúsculas y minúsculas.
+   
+   if (vocal === 'a' || vocal === 'e' || vocal === 'i' || vocal === 'o' || vocal === 'u') {
+      return "Es vocal";
+   } else {
+      return "Dato incorrecto";
+   }
 }
+
+console.log(esVocal("a"));      
+console.log(esVocal("i"));      
+console.log(esVocal("hola"));   
+console.log(esVocal("p"));      
+
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
 module.exports = {
