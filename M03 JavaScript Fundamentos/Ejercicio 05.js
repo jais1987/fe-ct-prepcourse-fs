@@ -92,7 +92,7 @@ function esVocal(letra) {
    }
 }
 
-console.log(esVocal("a"));      
+console.log(esVocal("A"));      
 console.log(esVocal("i"));      
 console.log(esVocal("hola"));   
 console.log(esVocal("p"));      
