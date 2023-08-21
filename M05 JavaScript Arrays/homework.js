@@ -103,16 +103,26 @@ function promedioResultadosTest(resultadosTest) {
    // Itera (en un bucle) los elementos del arreglo y devuelve el promedio de las notas.
    // Tu códigolet suma = 0;
 
-   // Recorrer el arreglo y sumar los resultados
-   for (var i = 0; i < resultadosTest.length; i++) {
+   if (resultadosTest.length === 0) {
+      return 0; 
+    }
+  
+    var suma = 0;
+  
+    
+    for (var i = 0; i < resultadosTest.length; i++) {
       suma += resultadosTest[i];
-   }
-
-   // Calcular el promedio dividiendo la suma entre la cantidad de elementos
-   var promedio = suma / resultadosTest.length;
-
-   return promedio;
-}
+    }
+  
+    
+    var promedio = suma / resultadosTest.length;
+  
+    return promedio;
+  } 
+  
+  var notas = [85, 90, 78, 92, 88];
+  var promedio = promedioResultadosTest(notas);
+  console.log("Promedio de notas:", promedio);
 
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
@@ -159,8 +169,7 @@ console.log(multiplicarArgumentos(2, 3, 4));
 function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
    // Tu código:
-   function cuentoElementos(array) {
-      var count = 0;  
+          var count = 0;  
    
       for (var i = 0; i < array.length; i++) {
           if (array[i] > 18) {
@@ -174,7 +183,7 @@ function cuentoElementos(array) {
    var miArreglo = [5, 10, 20, 25, 30];
    var cantidadElementos = cuentoElementos(miArreglo);
    console.log(cantidadElementos);
-}
+
 
 
 
@@ -213,26 +222,104 @@ function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
+   if (array.length === 0) {
+      return true;
+   }
+   
+   for (var i = 1; i < array.length; i++) {
+      if (array[i] !== array[0]) {
+         return false;
+      }
+   }
+   
+   return true;
 }
+
+var arreglo1 = [1, 1, 1, 1];
+console.log(todosIguales(arreglo1)); 
+
+var arreglo2 = [1, 2, 3, 4];
+console.log(todosIguales(arreglo2)); 
+
+var arreglo3 = [];
+console.log(todosIguales(arreglo3));
+
+
 
 function mesesDelAño(array) {
    // El arreglo contiene algunos meses del año desordenados. Debes recorrerlo, buscar los meses "Enero",
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
+   var mesesPedidos = [];
+   
+   for (var i = 0; i < array.length; i++) {
+      if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
+         mesesPedidos.push(array[i]);
+      }
+   }
+   
+   if (mesesPedidos.length === 3) {
+      return mesesPedidos;
+   } else {
+      return "No se encontraron los meses pedidos";
+   }
 }
+
+
+var meses = ["Febrero", "Marzo", "Abril", "Enero", "Noviembre"];
+console.log(mesesDelAño(meses)); 
+
+var meses2 = ["Diciembre", "Febrero", "Agosto"];
+console.log(mesesDelAño(meses2));
+
 
 function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+   var tabla = [];
+
+   for (var i = 0; i <= 10; i++) {
+      tabla.push(6 * i);
+   }
+
+   return tabla;
 }
+
+
+var tabla6 = tablaDelSeis();
+console.log(tabla6);
+   
+
+
 
 function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
+   var resultados = [];
+
+   for (var i = 0; i < array.length; i++) {
+      if (array[i] > 100) {
+         resultados.push(array[i]);
+      }
+   }
+
+   return resultados;
 }
+
+var arreglo = [50, 120, 80, 150, 90, 200];
+var resultado = mayorACien(arreglo);
+console.log(resultado); 
+
+
+
+
+
+
+
+
 
 /* ----------------------------------------------------------------------------------
 💪 EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT  EXTRA CREDIT 💪
@@ -245,7 +332,24 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   var resultado = [];
+   var suma = num; 
+
+   for (var i = 1; i <= 10; i++) {
+    suma += 2;
+    resultado.push(suma);
+
+    if (suma === i) {
+      return "Se interrumpió la ejecución";
+    }
+  }
+
+  return resultado;
 }
+
+var resultado = breakStatement(5); 
+console.log(resultado);
+
 
 function continueStatement(num) {
    // Iterar en un bucle aumentando en 2 el número recibido hasta un límite de 10 veces.
@@ -254,7 +358,24 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
-}
+   var resultado = [];
+   var suma = num;
+ 
+   for (var i = 1; i <= 10; i++) {
+     if (i === 5) {
+       continue; 
+     }
+ 
+     suma += 2;
+     resultado.push(suma);
+   }
+ 
+   return resultado;
+ }
+ 
+ var resultado = continueStatement(5);
+ console.log(resultado);
+
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
 module.exports = {
