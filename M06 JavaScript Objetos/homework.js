@@ -108,19 +108,16 @@ function tieneEmail(objetoUsuario) {
    // Verifica si el "objetoUsuario", en su propiedad "email", posee un valor definido.
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
-   if (objetoUsuario.email !== undefined) {
-     
-      return true;
-   } else {
-      
-      return false;
+         if (objetoUsuario.email) {
+         return true;
+      } else {
+         return false;
+      }
    }
-}
-var usuario1 = { nombre: "Ejemplo", email: "ejemplo@email.com" };
-var usuario2 = { nombre: "Otro Ejemplo" };
-
-console.log(tieneEmail(usuario1)); 
-console.log(tieneEmail(usuario2));
+   
+   var usuario = { nombre: "Jhon", email: "jhon@email.com" };
+   
+   console.log(tieneEmail(usuario)); 
 
 function tienePropiedad(objeto, propiedad) {
    // Verifica si el objeto recibido posee una propiedad con el mismo nombre que el parámetro "propiedad".
@@ -238,13 +235,6 @@ var totalLikes = sumarLikesDeUsuario(usuario);
 console.log(totalLikes); 
 
 
-////////////
-
-var objetoProducto = {
-   precio: 0,
-   porcentajeDeDescuento: 0
-};
-
 function agregarMetodoCalculoDescuento(objetoProducto) {
    // Agrega una propiedad al "objetoProducto" con el nombre "calcularPrecioDescuento".
    // Esta propiedad debe ser una función que multiplique el precio del producto por el porcentajeDeDescuento.
@@ -258,28 +248,26 @@ function agregarMetodoCalculoDescuento(objetoProducto) {
    // Tu código:
    objetoProducto.calcularPrecioDescuento = function() {
       
-      var descuento = (objetoProducto.precio * objetoProducto.porcentajeDeDescuento) / 100;
-      var precioFinal = objetoProducto.precio - descuento;
-      
+      var descuento = this.precio * this.porcentajeDeDescuento;
+            
+      var precioFinal = this.precio - descuento;
+            
       return precioFinal;
    };
-
    
-   return objetoProducto;
-
+     return objetoProducto;
 }
 
-var producto = {
-   precio: 100,               
-   porcentajeDeDescuento: 28  
-};
 
-agregarMetodoCalculoDescuento(producto);
+// var objetoProducto = {
+//    precio: 10,
+//    porcentajeDeDescuento: 0.2
+// };
 
+// agregarMetodoCalculoDescuento(objetoProducto);
 
-var precioFinal = producto.calcularPrecioDescuento();
-
-console.log(precioFinal);
+// var precioFinal = objetoProducto.calcularPrecioDescuento();
+// console.log(precioFinal); 
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
 module.exports = {
